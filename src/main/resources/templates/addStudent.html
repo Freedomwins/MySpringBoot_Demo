@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/student/addStudent" method="post">
+        姓名：<input type="text" name="name"></br>
+        年龄：<input type="text" name="age"></br>
+        生日：<input type="date" name="birthday"></br>
+        班级：<select name="cid">
+        <option th:each="cls : ${classesList}" th:value="${cls.id}" th:text="${cls.cname}"></option>
+    </select></br>
+    <button type="submit" >添加</button>
+    </form>
+</body>
+</html>
