@@ -40,4 +40,18 @@ public class StudentSerivceImpl implements IStudentService {
         int deleteById = studentMapper.deleteById(id);
         return deleteById;
     }
+
+    @Override
+    public Student getStudentById(int id) {
+        Student student = studentMapper.selectById(id);
+        Classes classes = classesMapper.selectById(student.getCid());
+        student.setClasses(classes);
+        return student;
+    }
+
+    @Override
+    public int updateStudent(Student student) {
+        int update = studentMapper.updateById(student);
+        return update;
+    }
 }

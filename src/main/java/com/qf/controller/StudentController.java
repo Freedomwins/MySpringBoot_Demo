@@ -49,4 +49,19 @@ public class StudentController {
         studentService.deleteStudent(id);
         return "redirect:/student/queryAll";
     }
+
+    @RequestMapping("toUpdate")
+    public String getStudentById(@RequestParam(name = "sid") int id, Model model) {
+        Student student = studentService.getStudentById(id);
+        List<Classes> classesList = classesService.queryAll();
+        model.addAttribute("classesList",classesList);
+        model.addAttribute("student",student);
+        return "updateStudent";
+    }
+
+    @RequestMapping("updateStudent")
+    public String updateStudent(Student student){
+        studentService.updateStudent(student);
+        return "redirect:/student/queryAll";
+    }
 }

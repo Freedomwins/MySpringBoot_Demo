@@ -20,7 +20,7 @@
             <td th:text="${stu.age}">年龄</td>
             <td th:text="${#dates.format(stu.birthday,'yyyy-MM-dd')}">生日</td>
             <td th:text="${stu.classes.cname}">班级</td>
-            <td><a href="#">编辑  </a><a th:href="|/student/delete?sid=${stu.id}|">删除</a></td>
+            <td><a th:href="|/student/toUpdate?sid=${stu.id}|">编辑  </a><a th:href="|/student/delete?sid=${stu.id}|">删除</a></td>
         </tr>
     </table>
     <a  href="/student/toAdd">添加学生</a>

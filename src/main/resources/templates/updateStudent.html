@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/student/updateStudent" method="post">
+    <input type="hidden" name="id" th:value="${student.id}">
+    姓名：<input type="text" name="name" th:value="${student.name}"></br>
+    年龄：<input type="text" name="age" th:value="${student.age}"></br>
+    生日：<input type="date" name="birthday" th:value="${#dates.format(student.birthday,'yyyy-MM-dd')}"></br>
+    班级：<select name="cid">
+    <option th:selected="${student.classes.id}"
+            th:each="cls : ${classesList}" th:value="${cls.id}" th:text="${cls.cname}"></option>
+</select></br>
+    <button type="submit" >修改</button>
+</form>
+</body>
+</html>
